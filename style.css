@@ -30,25 +30,6 @@
     animation: eyeMove 2s infinite linear;
 }
 
-/* .spinner::after {
-    content: "";
-    position: absolute;
-    width: 130%;
-    height: 130%;
-    border-radius: 50%;
-    border: 5px solid rgba(0, 229, 255, 0.6);
-    animation: spin 2s linear infinite;
-} */
-
-/* @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-} */
-
 @keyframes glow {
     0% {
         box-shadow: 0px 0px 10px rgba(0, 229, 255, 0.4);
@@ -79,10 +60,13 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
 }
 
 .image-container {
     padding: 10px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .image-container .image {
@@ -100,6 +84,7 @@
 
 .image-container p {
     color: #a0d8ef;
+    font-size: 16px;
     margin-bottom: 40px;
 }
 
@@ -112,6 +97,7 @@
     height: 50px;
     border-radius: 20px;
     background: rgba(202, 253, 255, 0.5);
+    padding: 10px;
 }
 
 .input .talk {
@@ -134,25 +120,81 @@
 .input .content {
     color: #aed0d0;
     font-size: 15px;
-    margin-right: 20px;
+    margin-left: 10px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
     .image-container h1 {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     .image-container p {
         font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .spinner {
+        width: 100px;
+        height: 100px;
     }
 
     .input {
-        width: 80%;
+        width: 85%;
         height: 45px;
+        border-radius: 15px;
+        padding: 8px;
+    }
+
+    .input .talk {
+        width: 40px;
+        height: 40px;
+    }
+
+    .input .talk i {
+        font-size: 18px;
     }
 
     .input .content {
         font-size: 13px;
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container h1 {
+        font-size: 28px;
+    }
+
+    .image-container p {
+        font-size: 13px;
+    }
+
+    .spinner {
+        width: 80px;
+        height: 80px;
+    }
+
+    .input {
+        width: 80%;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    .input .talk {
+        width: 35px;
+        height: 35px;
+    }
+
+    .input .talk i {
+        font-size: 16px;
+    }
+
+    .input .content {
+        font-size: 12px;
     }
 }

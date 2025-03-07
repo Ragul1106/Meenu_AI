@@ -15,7 +15,7 @@ function speak(text) {
 // Greeting based on time
 function wishMe() {
     let hour = new Date().getHours();
-    let greeting = hour < 12 ? "Good Morning Ragul..." : hour < 17 ? "Good Afternoon Ragul..." : "Good Evening Ragul...";
+    let greeting = hour < 12 ? "Good Morning..." : hour < 17 ? "Good Afternoon ..." : "Good Evening ...";
     speak(greeting);
 }
 
@@ -96,6 +96,7 @@ function takeCommand(message) {
 }
 
 // Function to Open Camera and Display it
+// Function to Open Camera and Display it
 function openCamera() {
     let videoElement = document.getElementById("cameraFeed");
 
@@ -103,6 +104,7 @@ function openCamera() {
         videoElement = document.createElement("video");
         videoElement.id = "cameraFeed";
         videoElement.autoplay = true;
+        videoElement.playsInline = true; 
         videoElement.style.width = "100%";
         videoElement.style.maxWidth = "500px";
         videoElement.style.border = "3px solid #00bcd4";
@@ -116,16 +118,19 @@ function openCamera() {
         navigator.mediaDevices.getUserMedia({ video: true })
             .then((stream) => {
                 videoElement.srcObject = stream;
+                videoElement.play(); 
                 cameraStream = stream;
                 speak("Camera is now open.");
             })
-            .catch(() => {
+            .catch((error) => {
+                console.error("Camera error:", error);
                 speak("Sorry, I couldn't access the camera.");
             });
     } else {
         speak("Camera is not supported in this browser.");
     }
 }
+
 
 // Function to Stop Camera and Remove Video Element
 function closeCamera() {
